@@ -16,15 +16,24 @@ var chat = [];
 io.on('connection', function (socket) {
     console.log('a user connected');
     io.emit('chat message', chat);
+<<<<<<< HEAD
+    socket.on('disconnect', function(){
+=======
     socket.on('disconnect', function () {
+>>>>>>> 4e57774dcba207e9aac350b0f2312d259eb473c4
         console.log('user disconnected');
     });
     socket.on('login', function (users) {
         console.log('username: ' + users);
         io.emit('login', users)
     });
+<<<<<<< HEAD
+    socket.on('chat message', function(data){
+        console.log('message: ' +data.msg);
+=======
     socket.on('chat message', function (data) {
         console.log('message: ' + data.msg);
+>>>>>>> 4e57774dcba207e9aac350b0f2312d259eb473c4
         chat.push(data);
         io.emit('chat message', chat);
     });
